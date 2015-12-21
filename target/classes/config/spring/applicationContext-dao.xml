@@ -36,7 +36,9 @@
 	
 	<!-- mapper scanner -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.mushu.mapper"></property>
+		<property name="basePackage" value="com.smartdevice.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
+	
+	
 </beans>

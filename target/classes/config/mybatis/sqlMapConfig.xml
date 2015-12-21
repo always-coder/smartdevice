@@ -14,6 +14,6 @@
 		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
 	<typeAliases>
-		<package name="com.mushu.model"></package>
+		<package name="com.smartdevice.model"></package>
 	</typeAliases>
 </configuration>

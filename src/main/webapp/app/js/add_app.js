@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 $(document).ready(
 		function(){
 			$("#submit").on(
@@ -17,6 +15,37 @@ $(document).ready(
 						dataType : 'json',
 						success : 
 							function(data){
+							   var listAppInfo = "";
+							   $.each(data.listAppInfo, function(i,item){
+								listAppInfo = listAppInfo 
+								              + "<li class="
+								              +"\""
+								              +"m110"
+								              +"\">"
+								              + "<img class="
+								              +"\""
+								              +"m120"
+								              +"\"" 
+								              +" src="
+								              + "\""
+								              +item.PATH
+								              +"\">"
+								              +"<span class="
+								              +"\""
+								              +"ml30"
+								              +"\">"
+								              + item.APPNAME
+								              +"</span>"             
+								              +"<button class="
+								              +"\""
+								              + "btn btn-default m140"
+								              +"\">"
+								              +"安装"
+								              +"</button>"
+								              + "</li>"
+								              
+							    });
+							   $("#p_text").html(listAppInfo);
 								console.log("app add success");
 						    },
 						error : 
@@ -28,3 +57,4 @@ $(document).ready(
 			)
 		}
 );
+

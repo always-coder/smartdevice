@@ -19,9 +19,9 @@
 
 	<context:property-placeholder location="classpath:config/db.properties" />
 
-	<context:component-scan base-package="com.mushu">
+	<context:component-scan base-package="com.smartdevice">
 		<context:exclude-filter type="regex"
-			expression="com.mushu.controller" />
+			expression="com.smartdevice.controller" />
 	</context:component-scan>
 	<!--默认的mvc注解映射的支持 -->
     <!--mvc:annotation-driven/-->

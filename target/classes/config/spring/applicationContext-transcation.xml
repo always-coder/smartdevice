@@ -34,9 +34,10 @@
 			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
 		</tx:attributes>
 	</tx:advice>
-
+	
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution (* com.mushu.service.impl.*.*(..))" />
+			pointcut="execution (* com.smartdevice.service.impl.*.*(..))" />
 	</aop:config>
+	
 </beans>

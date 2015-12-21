@@ -24,7 +24,7 @@ public class AppInfoServiceImpl implements AppInfoService{
 		log.info("AppInfoService impl in");
 		appInfoMapper.addAppInfo(appInfo);
 		log.info("Appinfo service impl success");;
-		return false;
+		return true;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.smartdevice.controller;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class AppInfoController {
 	
 	@ResponseBody
 	@RequestMapping("/add_appinfo")
-	public String addApp(@ModelAttribute("appInfo") AppInfo appInfo){
+	public boolean addApp(@ModelAttribute("appInfo") AppInfo appInfo){
 		
 		log.info("app_add controller in");
 	//	AppInfo appInfo = new AppInfo();
@@ -43,29 +44,28 @@ public class AppInfoController {
 		Date current = new Date();
 		appInfo.setpubTime(current);
 		log.info("app add success");
-		appInfoService.addAppInfo(appInfo);
-		return "success";
+	
+		boolean flag = appInfoService.addAppInfo(appInfo);
+		
+		return flag;
 	}
 	
 	@ResponseBody
 	@RequestMapping("list_appinfo")
-	public String listAppInfo(){
+	public Map<String,Object> listAppInfo(){
+		Map<String, Object> map = new HashMap<String, Object>();
 		List<Map<String, Object>> appList = appInfoService.listAppInfo();
 		int size = appList.size();
 		log.info("list size is : " +size);
-		
-		for(int i = 0; i < size; i ++){
-			Map<String, Object> map = appList.get(i);
-			Collection con = map.values();
-			Iterator it = con.iterator();
-			while(it.hasNext()){
-				AppInfo app = (AppInfo)it.next();
-				log.info(app.getId());
+
+		for(Map<String, Object> m : appList){
+			for(String k : m.keySet()){
+				log.info(k + " : " + m.get(k));
 			}
 		}
 		
-		log.info(size);
-		return "success";
+		map.put("listAppInfo", appList);
+		return map;
 	}
 	
 }
